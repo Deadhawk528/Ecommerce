@@ -12,14 +12,6 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local')
 const User = require('./models/User')
 
-const  productRoutes = require('./routes/product')
-const reviewRoutes = require('./routes/review')
-const authRoutes = require('./routes/auth')
-const cartRoutes = require('./routes/cart')
-const likeRoutes = require('./routes/api/productapi')
-
-
-
 //connecting Mongo DB via mongoose
 mongoose.connect('mongodb+srv://harshitmalhotra28:w3fPMiie6iG8lo9x@cluster0.wepzv.mongodb.net/ecommerce')
 .then(()=>{
@@ -28,6 +20,11 @@ mongoose.connect('mongodb+srv://harshitmalhotra28:w3fPMiie6iG8lo9x@cluster0.wepz
 .catch((err)=>{
     console.log(err)
 })
+const  productRoutes = require('./routes/product')
+const reviewRoutes = require('./routes/review')
+const authRoutes = require('./routes/auth')
+const cartRoutes = require('./routes/cart')
+const likeRoutes = require('./routes/api/productapi')
 
 let configSession = {
     secret: 'keyboard cat',
@@ -79,6 +76,10 @@ app.use(likeRoutes);
 
 app.get('/', (req,res)=>{
     res.render('home')
+})
+
+app.get('*', (req,res)=>{
+    res.sendFile(__dirname + '/404.html')
 })
 
 

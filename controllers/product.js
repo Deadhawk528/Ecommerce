@@ -1,8 +1,11 @@
 const Product = require("../models/Product");
+const { model, default: mongoose } = require('mongoose');
+
 
 const showAllProducts = async (req,res)=>{
     try{
-    let products = await Product.find();
+    let products = await Product.find().limit(100)
+    console.log(products.length);
     res.render('products/index', {products})
     }
     catch(e){
