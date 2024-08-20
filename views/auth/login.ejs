@@ -1,0 +1,22 @@
+<% layout('layouts/boilerplate') %>
+
+<link rel="stylesheet" href="/css/login.css">
+
+<div class="container-fluid">
+
+<form class="mx-auto" action="/login" method="POST">
+    <h4 class="text-center">Login</h4>
+    <div class="mb-3 mt-5">
+      <label class="form-label" for="username">Email address</label>
+      <input class="form-control" type="text" name="username" id="username" placeholder="Enter your Username">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="password">Password</label>
+      <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <p class="fw-light mt-2 fw-bold">Don't have an account? <a href="/register">Signup </a></p>
+
+  </form>
+</div>

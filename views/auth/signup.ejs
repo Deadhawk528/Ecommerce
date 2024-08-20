@@ -1,0 +1,91 @@
+<% layout('layouts/boilerplate') %>
+
+<link rel="stylesheet" href="/css/signup.css">
+
+
+<div class="row">
+ <div class="col-md-6 mx-auto">
+    <%- include('../partials/flash') %>
+    <h4 class="text-center">Sign up</h4>
+    <form action="/register" method="POST" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label class="form-label" for="username">Username:</label>
+            <input class="form-control" type="text" name="username" id="username" placeholder="Enter your Username" required>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Username cannot be Empty
+              </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="email">Email:</label>
+            <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email" required>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Email cannot be Empty
+              </div>
+        </div>
+
+        <div class="mb-3">
+            <p>Want to register as ?</p>
+            <div class="mx-2">
+                <label class="form-label" for="buyer">Buyer:</label>
+                <input class="form-check-input" type="radio" name="role" value="buyer" id="buyer" required>
+            </div>
+
+            <div class="mx-2">
+                <label class="form-label" for="seller">Seller:</label>
+                <input class="form-check-input" type="radio" name="role" value="seller" id="seller">
+            </div>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Choose any one
+              </div>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label" for="password">Password:</label>
+            <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password">
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Password cannot be Empty
+              </div>
+        </div>
+        <button type="submit" class="btn btn-sm btn-success">Sign up</button>
+        <p class="fw-light mt-2">Already have an account? <a href="/login">Login </a></p>
+
+
+    </form>
+ </div>
+
+   
+</div>
+
+<script>
+    (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
